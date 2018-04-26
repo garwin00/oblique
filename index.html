@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900" rel="stylesheet">
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+    font-size: 100%;
+    box-sizing: border-box;
+  }
+
+  :root {
+    font-size: 16px;
+  }
+  
+  body {
+    padding: 50px;
+    background: #efefef;
+  }
+
+  h1 {
+    font: 4rem "Montserrat";
+    text-transform: uppercase;
+    letter-spacing: .5pt;
+    font-weight: 900;
+    line-height: 3rem;
+    color: #666;
+  }
+
+  h2 {
+    font: .9rem "Montserrat";
+    margin: 50px 0;
+    text-transform: uppercase;
+    color: #767676;
+    letter-spacing: 2pt;
+  }
+
+  h3 {
+    font: .875rem "Montserrat";
+    position: absolute;
+    color: #666;
+    bottom: 0;
+    margin-bottom: 2em;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    height: calc(100vh - 100px);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
+    box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);  
+  }
+
+  p {
+    font: 1.125rem "Montserrat";
+    color: #333;
+    font-weight: 400;
+    max-width: 20em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button {
+    background-color: #666;
+    color: #efefef;
+    border: 0;
+    padding: 20px  60px;
+    font: .75rem "Montserrat";
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    border-radius: 3px;
+  }
+
+  button:hover {
+    background-color: #fff;
+    color: #666;
+    transition: .5s all;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
+    box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
+  }
+
+  button:focus {
+    outline: none;
+  }
+  
+  button:active {
+    transform: translateY(5px);
+    opacity: .5;
+  }
+
+  .grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .one {
+    align-self: end;
+  }
+
+  .scrollDown {
+    display: none;
+  }
+
+  @media (max-width: 980px) {
+    .grid {
+      display: block;
+    }
+
+    .one {
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    .card {
+    padding: 2em;
+    }
+
+    .scrollDown {
+      display: inline;
+    }
+}
+  </style>
+</head>
+
+<body onload="newStrategy();">
+  <div class="grid">
+    <div class="gridItem one">
+      <h1>Oblique<br>Strategies</h1>
+      <h2>Over One Hundred Worthwhile Dilemmas</h2>
+      <button onclick="newStrategy()" class="button">New Strategy</button>
+      <h3 class="scrollDown">Scroll Down &#x25BC;</h3>
+    </div>
+    <div class="gridItem">
+      <div class="card">
+      <p id="print"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+    var Strategies = [
+        "Abandon desire",
+        "Abandon normal instructions",
+        "Accept advice",
+        "Adding on",
+        "A line has two sides",
+        "Always the first steps",
+        "Ask people to work against their better judgement",
+        "Ask your body",
+        "Be dirty",
+        "Be extravagant",
+        "Be less critical",
+        "Breathe more deeply",
+        "Bridges -build -burn",
+        "Change ambiguities to specifics",
+        "Change nothing and continue consistently",
+        "Change specifics to ambiguities",
+        "Consider transitions",
+        "Courage!",
+        "Cut a vital connection",
+        "Decorate, decorate",
+        "Destroy nothing; destroy the most important thing",
+        "Discard an axiom",
+        "Disciplined self-indulgence",
+        "Discover your formulas and abandon them",
+        "Display your talent",
+        "Distort time",
+        "Do nothing for as long as possible",
+        "Don't avoid what is easy",
+        "Don't break the silence",
+        "Don't stress one thing more than another",
+        "Do something boring",
+        "Do something sudden, destructive and unpredictable",
+        "Do the last thing first",
+        "Do the words need changing?",
+        "Emphasise differences",
+        "Emphasise the flaws",
+        "Faced with a choice, do both (From Dieter Rot.)",
+        "Find a safe part and use it as an anchor",
+        "Give the game away",
+        "Give way to your worst impulse",
+        "Go outside. Shut the door.",
+        "Go to an extreme, come part way back",
+        "How would someone else do it?",
+        "How would you have done it?",
+        "In total darkness, or in a very large room, very quietly",
+        "Is it finished?",
+        "Is something missing?",
+        "Is the style right?",
+        "It is simply a matter or work",
+        "Just carry on",
+        "Listen to the quiet voice",
+        "Look at the order in which you do things",
+        "Magnify the most difficult details",
+        "Make it more sensual",
+        "Make what’s perfect more human",
+        "Move towards the unimportant",
+        "Not building a wall; making a brick",
+        "Once the search has begun, something will be found",
+        "Only a part, not the whole",
+        "Only one element of each kind",
+        "Openly resist change",
+        "Pae White’s non-blank graphic metacard",
+        "Question the heroic",
+        "Remember quiet evenings",
+        "Remove a restriction",
+        "Repetition is a form of change",
+        "Retrace your steps",
+        "Reverse",
+        "Simple Subtraction",
+        "Slow preparation, fast execution",
+        "State the problem as clearly as possible",
+        "Take a break",
+        "Take away the important parts",
+        "The inconsistency principle",
+        "The most easily forgotten thing is the most important",
+        "Think –inside the work -outside the work",
+        "Tidy up",
+        "Try faking it (From Stewart Brand.)",
+        "Turn it upside down",
+        "Use an old idea",
+        "Use cliches",
+        "Use filters",
+        "Use something nearby as a model",
+        "Use ‘unqualified’ people",
+        "Use your own ideas",
+        "Voice your suspicions",
+        "Water",
+        "What context would look right?",
+        "What is the simplest solution?",
+        "What mistakes did you make last time?",
+        "What to increase? What to reduce? What to maintain?",
+        "What were you really thinking about just now?",
+        "What wouldn’t you do?",
+        "What would your closest friend do?",
+        "When is it for?",
+        "Where is the edge?",
+        "Which parts can be grouped?",
+        "Work at a different speed",
+        "Would anyone want it?",
+        "Your mistake was a hidden intention",
+        "Use fewer notes",
+        "Use filters",
+        "Use ‘unqualified’ people",
+        "What are you really thinking about just now? Incorporate",
+        "What is the reality of the situation?",
+        "What mistakes did you make last time?",
+        "What would your closest friend do?",
+        "What wouldn’t you do?",
+        "Work at a different speed",
+        "You are an engineer",
+        "You can only make one dot at a time",
+        "You don’t have to be ashamed of using your own ideas"   
+        ];          
+        var newStrategy = function ()
+        {
+          document.getElementById("print").innerHTML = Strategies[Math.floor(Math.random() * Strategies.length)];
+        };
+    </script>
+</body>
+</html>
