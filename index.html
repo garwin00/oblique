@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+
   <style>
+
   * {
     margin: 0;
     padding: 0;
@@ -20,150 +22,61 @@
   }
   
   body {
-    padding: 50px;
-    background: #efefef;
+    background: #e0e0e0;
+    display: flex;
   }
-
-  h1 {
-    font: 4rem "Montserrat";
-    text-transform: uppercase;
-    letter-spacing: .5pt;
-    font-weight: 900;
-    line-height: 3rem;
-    color: #666;
-  }
-
-  h2 {
-    font: .9rem "Montserrat";
-    margin: 50px 0;
-    text-transform: uppercase;
-    color: #767676;
-    letter-spacing: 2pt;
-  }
-
-  h3 {
-    font: .875rem "Montserrat";
-    position: absolute;
-    color: #666;
-    bottom: 0;
-    margin-bottom: 2em;
-  }
-
+  
   .card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    background: #fff;
-    height: calc(100vh - 100px);
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
-    -moz-box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
-    box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);  
+    background: #e5e5e5;
+    width: 30em;
+    height: 15em;
+    align-self: flex-end;
+  }
+
+  h1 {
+
   }
 
   p {
-    font: 1.125rem "Montserrat";
-    color: #333;
-    font-weight: 400;
+    font: 1.2rem "Hind";
     max-width: 20em;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1pt;
+    letter-spacing: 2pt;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
   }
 
   button {
-    background-color: #666;
-    color: #efefef;
-    border: 0;
-    padding: 20px  60px;
-    font: .75rem "Montserrat";
+    background-color: #333;
+    color: white;
+    padding: 12px 50px;
+    font: .875rem "Hind";
     text-transform: uppercase;
-    letter-spacing: 2pt;
-    border-radius: 3px;
-  }
-
-  button:hover {
-    background-color: #fff;
-    color: #666;
-    transition: .5s all;
-    cursor: pointer;
-    -webkit-box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
-    -moz-box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
-    box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.7);
-  }
-
-  button:focus {
-    outline: none;
   }
   
-  button:active {
-    transform: translateY(5px);
-    opacity: .5;
-  }
-
-  .grid {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1.5fr 1fr;
-  }
-
-  .one {
-    align-self: end;
-  }
-
-  .scrollDown {
-    display: none;
-  }
-
-  @media (max-width: 980px) {
-    .grid {
-      display: block;
-    }
-
-    .one {
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    h1 {
-      font-size: 3rem;
-    }
-
-    .card {
-    padding: 2em;
-    }
-
-    .scrollDown {
-      display: inline;
-    }
-}
+  
+  
+  
   </style>
 </head>
+<body onload="NewStrategy()">
 
-<body onload="newStrategy();">
-  <div class="grid">
-    <div class="gridItem one">
-      <h1>Oblique<br>Strategies</h1>
-      <h2>Over One Hundred Worthwhile Dilemmas</h2>
-      <button onclick="newStrategy()" class="button">New Strategy</button>
-      <h3 class="scrollDown">Scroll Down &#x25BC;</h3>
-    </div>
-    <div class="gridItem">
-      <div class="card">
-      <p id="print"></p>
-    </div>
+    <h1>Oblique Strategies</h1>
+    <h2>Over One Hundred Worthwhile Dilemmas</h2>
+    <button onclick="NewStrategy()"><img src="../img/refresh.svg"></button>
+
+    <div class="card">
+    <p id="print"></p>
   </div>
-</div>
+
 
 <script>
     var Strategies = [
@@ -280,10 +193,12 @@
         "You can only make one dot at a time",
         "You don’t have to be ashamed of using your own ideas"   
         ];          
-        var newStrategy = function ()
+        var NewStrategy = function ()
         {
-          document.getElementById("print").innerHTML = Strategies[Math.floor(Math.random() * Strategies.length)];
+            document.getElementById("print").innerHTML = "<p>" + Strategies[Math.floor(Math.random() * Strategies.length)] + "</p>";
         };
+          
+        
     </script>
 </body>
 </html>
